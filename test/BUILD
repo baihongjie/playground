@@ -8,7 +8,7 @@ cc_binary(
     ],
    
     #linkopts = ["-pthread"],
-    deps = ["@boost//:boost", "@asio//:asio"],
+    deps = ["@boost//:boost", "@asio//:asio", ":a_proto"],
 )
 
 cc_binary(
@@ -24,3 +24,9 @@ cc_binary(
     deps = ["@boost//:boost", "@asio//:asio"],
 )
 
+load("/google/protobuf/protobuf", "cc_proto_library")
+
+cc_proto_library(
+    name = "a_proto",
+    srcs = ["a.proto", ],
+)

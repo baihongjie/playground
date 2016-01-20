@@ -3,6 +3,7 @@
 #include <thread>
 #include <utility>
 #include "asio.hpp"
+#include "test/a.pb.h"
 
 using asio::ip::tcp;
 
@@ -45,6 +46,9 @@ void server(asio::io_service& io_service, unsigned short port)
 
 int main(int argc, char* argv[])
 {
+  A a;
+  a.set_a(100);
+  std::cout << a.DebugString() << std::endl;
   try
   {
     if (argc != 2)

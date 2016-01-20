@@ -1,0 +1,5 @@
+syntax = "proto2";
+
+message A {
+  optional int64 a = 1;
+}
